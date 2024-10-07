@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Drug Safety Reporting Trends</title>
+    <style>
+        /* Basic reset and theme colors */
+/* Basic reset and theme colors */
+/* Basic reset and theme colors */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #f9f9f9;
+    color: #000;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+h1 {
+    font-size: 28px; /* Adjusted for better mobile visibility */
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-size: 16px; /* Adjusted for better mobile visibility */
+    font-weight: 600;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of child elements */
+    padding: 20px; /* Reduced padding for mobile */
+}
+
+.sidebar {
+    width: 100%; /* Make sidebar full-width on mobile */
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Adjusted for mobile */
+    margin-bottom: 20px; /* Add spacing below sidebar */
+}
+
+.dropdown {
+    margin-bottom: 15px; /* Adjusted for mobile */
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: #f0f0f0;
+    border: none;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+select:hover {
+    background-color: #e0e0e0;
+}
+
+.content {
+    flex: 1;
+    background-color: white;
+    padding: 20px; /* Reduced padding for mobile */
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 100%; /* Ensure chart fits mobile view */
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 20px; /* Adjusted for better mobile visibility */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px; /* Adjusted for mobile */
+    background-color: #f9f9f9;
+    color: #666;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Reduced margin for mobile */
+}
+
+/* Animations */
+select,
+.content {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+select:focus,
+.content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries for Responsive Design */
+@media (min-width: 768px) {
+    .sidebar {
+        width: 250px; /* Sidebar width on larger screens */
+        margin-right: 20px; /* Spacing between sidebar and content */
+    }
+
+    .content {
+        padding: 30px; /* Increased padding for larger screens */
+    }
+
+    h1 {
+        font-size: 36px; /* Header size for larger screens */
+    }
+
+    h2 {
+        font-size: 24px; /* Subheader size for larger screens */
+    }
+
+    h3 {
+        font-size: 18px; /* Subheader size for larger screens */
+    }
+}
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    padding: 20px; /* Adjusted padding */
+}
+
+.sidebar {
+    flex: 1 1 250px; /* Allow flex to adjust size */
+    max-width: 250px; /* Maximum width */
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Adjusted padding */
+    margin: 10px; /* Adjusted margin */
+}
+
+.dropdown {
+    margin-bottom: 15px; /* Adjusted margin */
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px; /* Adjusted margin */
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: #f0f0f0;
+    border: none;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+select:hover {
+    background-color: #e0e0e0;
+}
+
+.content {
+    flex: 1 1 300px; /* Allow flex to adjust size */
+    background-color: white;
+    padding: 20px; /* Adjusted padding */
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    margin: 10px; /* Adjusted margin */
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 20px; /* Adjusted for mobile */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #666;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Adjusted margin */
+}
+
+/* Animations */
+select,
+.content {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+select:focus,
+.content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack sidebar and content vertically */
+    }
+
+    .sidebar {
+        max-width: 100%; /* Full width on small screens */
+        margin: 0 0 20px; /* Margin at the bottom */
+    }
+
+    .content {
+        max-width: 100%; /* Full width on small screens */
+    }
+
+    h1 {
+        font-size: 24px; /* Smaller heading for mobile */
+    }
+
+    h2 {
+        font-size: 18px; /* Smaller subheading for mobile */
+    }
+
+    h3 {
+        font-size: 16px; /* Smaller h3 for mobile */
+    }
+
+    padding: 10px; /* Smaller padding for mobile */
+}
+
+
+        .container {
+            display: flex;
+            padding: 40px;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-right: 20px;
+        }
+
+        .dropdown {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 12px;
+            background-color: #f0f0f0;
+            border: none;
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+            outline: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        select:hover {
+            background-color: #e0e0e0;
+        }
+
+        .content {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .chart-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #666;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        /* Animations */
+        select, .content {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        select:focus, .content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Global Drug Safety Reporting Trends</h1>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar for Drug Selection -->
+        <div class="sidebar">
+            <h3>Select Drug</h3>
+            <div class="dropdown">
+                <label for="drugSelect">Drug:</label>
+                <select id="drugSelect" onchange="updateGraph()">
+                    <option value="Drug A">Drug A</option>
+                    <option value="Drug B">Drug B</option>
+                    <option value="Drug C">Drug C</option>
+                    <option value="Drug D">Drug D</option>
+                </select>
+            </div>
+
+            <h3>Select Country</h3>
+            <div class="dropdown">
+                <label for="countrySelect">Country:</label>
+                <select id="countrySelect" onchange="updateGraph()">
+                    <option value="Global">Global</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="India">India</option>
+                    <option value="Germany">Germany</option>
+                </select>
+            </div>
+
+            <h3>Select Gender</h3>
+            <div class="dropdown">
+                <label for="genderSelect">Gender:</label>
+                <select id="genderSelect" onchange="updateGraph()">
+                    <option value="All">All</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <h3>Select Age Group</h3>
+            <div class="dropdown">
+                <label for="ageGroupSelect">Age Group:</label>
+                <select id="ageGroupSelect" onchange="updateGraph()">
+                    <option value="All Ages">All Ages</option>
+                    <option value="0-17">0-17</option>
+                    <option value="18-34">18-34</option>
+                    <option value="35-49">35-49</option>
+                    <option value="50-64">50-64</option>
+                    <option value="65+">65+</option>
+                </select>
+            </div>
+
+            <h3>Select Race</h3>
+            <div class="dropdown">
+                <label for="raceSelect">Race:</label>
+                <select id="raceSelect" onchange="updateGraph()">
+                    <option value="All">All</option>
+                    <option value="Caucasian">Caucasian</option>
+                    <option value="African American">African American</option>
+                    <option value="Asian">Asian</option>
+                    <option value="Hispanic">Hispanic</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Content Area for Graph -->
+        <div class="content">
+            <section>
+                <h2>Adverse Event Reports for Selected Drug</h2>
+                <div class="chart-container">
+                    <canvas id="adrChart"></canvas>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Drug Safety Monitor</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Sample ADR data for different combinations of drugs, countries, gender, age, and race
+        const adrData = {
+    "Global": {
+        "Drug A": {
+            "All": [120, 90, 80, 75, 60, 50, 45, 40, 30, 20],
+            "Male": [110, 85, 75, 65, 50, 45, 40, 35, 25, 15],
+            "Female": [130, 95, 85, 80, 70, 55, 50, 45, 35, 25],
+            "0-17": [30, 20, 15, 10, 5, 5, 4, 3, 2, 1],
+            "18-34": [50, 40, 35, 30, 25, 20, 15, 10, 8, 5],
+            "35-49": [20, 15, 12, 10, 8, 6, 5, 3, 2, 1],
+            "50-64": [10, 8, 6, 5, 4, 3, 2, 1, 1, 1],
+            "65+": [10, 7, 5, 4, 3, 2, 1, 1, 1, 1]
+        },
+        "Drug B": {
+            "All": [100, 85, 75, 60, 55, 50, 40, 35, 30, 25],
+            "Male": [95, 80, 70, 55, 50, 45, 35, 30, 25, 20],
+            "Female": [105, 90, 80, 65, 60, 55, 45, 40, 35, 30],
+            "0-17": [20, 15, 10, 8, 6, 5, 4, 3, 2, 1],
+            "18-34": [35, 30, 25, 20, 15, 12, 10, 8, 6, 4],
+            "35-49": [15, 10, 8, 6, 5, 4, 3, 2, 1, 1],
+            "50-64": [8, 6, 5, 4, 3, 2, 1, 1, 1, 1],
+            "65+": [7, 5, 4, 3, 2, 2, 1, 1, 1, 1]
+        },
+        "Drug C": {
+            "All": [90, 70, 65, 50, 45, 40, 30, 25, 20, 15],
+            "Male": [85, 65, 60, 45, 40, 35, 28, 22, 18, 12],
+            "Female": [95, 75, 70, 55, 45, 40, 35, 28, 22, 18],
+            "0-17": [15, 10, 8, 6, 5, 4, 3, 2, 1, 1],
+            "18-34": [25, 20, 18, 15, 12, 10, 8, 5, 3, 2],
+            "35-49": [12, 9, 7, 5, 4, 3, 2, 1, 1, 1],
+            "50-64": [6, 5, 4, 3, 2, 2, 1, 1, 1, 1],
+            "65+": [5, 4, 3, 2, 2, 1, 1, 1, 1, 1]
+        },
+        "Drug D": {
+            "All": [80, 65, 55, 50, 40, 30, 25, 20, 15, 10],
+            "Male": [75, 60, 50, 45, 35, 25, 20, 15, 10, 5],
+            "Female": [85, 70, 60, 50, 40, 30, 25, 20, 15, 10],
+            "0-17": [10, 8, 6, 5, 4, 3, 2, 1, 1, 1],
+            "18-34": [20, 15, 12, 10, 8, 6, 4, 3, 2, 1],
+            "35-49": [10, 7, 5, 4, 3, 2, 1, 1, 1, 1],
+            "50-64": [5, 4, 3, 2, 1, 1, 1, 1, 1, 1],
+            "65+": [5, 3, 2, 1, 1, 1, 1, 1, 1, 1]
+        }
+    },
+    "USA": {
+        "Drug A": {
+            "All": [110, 85, 75, 65, 55, 45, 40, 35, 25, 15],
+            "Male": [100, 80, 70, 60, 50, 40, 35, 30, 20, 10],
+            "Female": [120, 90, 80, 70, 60, 50, 45, 40, 30, 20],
+            "0-17": [20, 15, 10, 8, 6, 5, 4, 3, 2, 1],
+            "18-34": [40, 35, 30, 25, 20, 15, 10, 8, 6, 4],
+            "35-49": [20, 15, 12, 10, 8, 6, 5, 3, 2, 1],
+            "50-64": [10, 8, 6, 5, 4, 3, 2, 1, 1, 1],
+            "65+": [10, 7, 5, 4, 3, 2, 1, 1, 1, 1]
+        },
+        "Drug B": {
+            "All": [90, 75, 65, 60, 50, 45, 40, 30, 25, 20],
+            "Male": [85, 70, 60, 55, 45, 40, 35, 25, 20, 15],
+            "Female": [95, 80, 70, 65, 55, 50, 45, 35, 30, 25],
+            "0-17": [15, 12, 9, 7, 5, 4, 3, 2, 1, 1],
+            "18-34": [25, 20, 18, 15, 12, 10, 8, 6, 4, 2],
+            "35-49": [12, 10, 8, 6, 5, 4, 3, 2, 1, 1],
+            "50-64": [6, 5, 4, 3, 2, 2, 1, 1, 1, 1],
+            "65+": [5, 4, 3, 2, 2, 1, 1, 1, 1, 1]
+        },
+        "Drug C": {
+            "All": [80, 65, 55, 50, 40, 30, 25, 20, 15, 10],
+            "Male": [75, 60, 50, 45, 35, 25, 20, 15, 10, 5],
+            "Female": [85, 70, 60, 50, 40, 30, 25, 20, 15, 10],
+            "0-17": [12, 10, 8, 6, 5, 4, 3, 2, 1, 1],
+            "18-34": [22, 18, 15, 12, 10, 8, 6, 4, 3, 2],
+            "35-49": [10, 8, 6, 4, 3, 2, 1, 1, 1, 1],
+            "50-64": [5, 4, 3, 2, 1, 1, 1, 1, 1, 1],
+            "65+": [4, 3, 2, 1, 1, 1, 1, 1, 1, 1]
+        },
+        "Drug D": {
+            "All": [70, 60, 50, 40, 30, 20, 15, 10, 5, 3],
+            "Male": [65, 55, 45, 35, 25, 15, 10, 5, 3, 2],
+            "Female": [75, 65, 55, 45, 35, 25, 20, 15, 10, 5],
+            "0-17": [8, 6, 5, 4, 3, 2, 1, 1, 1, 1],
+            "18-34": [15, 12, 9, 7, 5, 4, 3, 2, 1, 1],
+            "35-49": [8, 6, 5, 4, 3, 2, 1, 1, 1, 1],
+            "50-64": [4, 3, 2, 1, 1, 1, 1, 1, 1, 1],
+            "65+": [3, 2, 1, 1, 1, 1, 1, 1, 1, 1]
+        }
+        },
+           "UK": {
+        "Drug A": {
+             "All": [80, 65, 55, 50, 40, 30, 25, 20, 15, 10],
+            "Male": [75, 60, 50, 45, 35, 25, 20, 15, 10, 5],
+            "Female": [85, 70, 60, 50, 40, 30, 25, 20, 15, 10],
+            "0-17": [10, 8, 6, 5, 4, 3, 2, 1, 1, 1],
+            "18-34": [20, 15, 12, 10, 8, 6, 4, 3, 2, 1],
+            "35-49": [10, 7, 5, 4, 3, 2, 1, 1, 1, 1],
+            "50-64": [5, 4, 3, 2, 1, 1, 1, 1, 1, 1],
+            "65+": [5, 3, 2, 1, 1, 1, 1, 1, 1, 1]
+        },
+        "Drug B": {
+            "All": [100, 85, 75, 60, 55, 50, 40, 35, 30, 25],
+            "Male": [95, 80, 70, 55, 50, 45, 35, 30, 25, 20],
+            "Female": [105, 90, 80, 65, 60, 55, 45, 40, 35, 30],
+            "0-17": [20, 15, 10, 8, 6, 5, 4, 3, 2, 1],
+            "18-34": [35, 30, 25, 20, 15, 12, 10, 8, 6, 4],
+            "35-49": [15, 10, 8, 6, 5, 4, 3, 2, 1, 1],
+            "50-64": [8, 6, 5, 4, 3, 2, 1, 1, 1, 1],
+            "65+": [7, 5, 4, 3, 2, 2, 1, 1, 1, 1]
+        },
+        "Drug C": {
+            "All": [90, 70, 65, 50, 45, 40, 30, 25, 20, 15],
+            "Male": [85, 65, 60, 45, 40, 35, 28, 22, 18, 12],
+            "Female": [95, 75, 70, 55, 45, 40, 35, 28, 22, 18],
+            "0-17": [15, 10, 8, 6, 5, 4, 3, 2, 1, 1],
+            "18-34": [25, 20, 18, 15, 12, 10, 8, 5, 3, 2],
+            "35-49": [12, 9, 7, 5, 4, 3, 2, 1, 1, 1],
+            "50-64": [6, 5, 4, 3, 2, 2, 1, 1, 1, 1],
+            "65+": [5, 4, 3, 2, 2, 1, 1, 1, 1, 1]
+        },
+        "Drug D": {
+            "All": [80, 65, 55, 50, 40, 30, 25, 20, 15, 10],
+            "Male": [75, 60, 50, 45, 35, 25, 20, 15, 10, 5],
+            "Female": [85, 70, 60, 50, 40, 30, 25, 20, 15, 10],
+            "0-17": [10, 8, 6, 5, 4, 3, 2, 1, 1, 1],
+            "18-34": [20, 15, 12, 10, 8, 6, 4, 3, 2, 1],
+            "35-49": [10, 7, 5, 4, 3, 2, 1, 1, 1, 1],
+            "50-64": [5, 4, 3, 2, 1, 1, 1, 1, 1, 1],
+            "65+": [5, 3, 2, 1, 1, 1, 1, 1, 1, 1]
+        }
+    },
+     "Germany": {
+        "Drug A": {
+                      "All": [70, 60, 50, 40, 30, 20, 15, 10, 5, 3],
+            "Male": [65, 55, 45, 35, 25, 15, 10, 5, 3, 2],
+            "Female": [75, 65, 55, 45, 35, 25, 20, 15, 10, 5],
+            "0-17": [8, 6, 5, 4, 3, 2, 1, 1, 1, 1],
+            "18-34": [15, 12, 9, 7, 5, 4, 3, 2, 1, 1],
+            "35-49": [8, 6, 5, 4, 3, 2, 1, 1, 1, 1],
+            "50-64": [4, 3, 2, 1, 1, 1, 1, 1, 1, 1],
+            "65+": [3, 2, 1, 1, 1, 1, 1, 1, 1, 1]
+        },
+        "Drug B": {
+			"All": [80, 65, 55, 50, 40, 30, 25, 20, 15, 10],
+            "Male": [75, 60, 50, 45, 35, 25, 20, 15, 10, 5],
+            "Female": [85, 70, 60, 50, 40, 30, 25, 20, 15, 10],
+            "0-17": [10, 8, 6, 5, 4, 3, 2, 1, 1, 1],
+            "18-34": [20, 15, 12, 10, 8, 6, 4, 3, 2, 1],
+            "35-49": [10, 7, 5, 4, 3, 2, 1, 1, 1, 1],
+            "50-64": [5, 4, 3, 2, 1, 1, 1, 1, 1, 1],
+            "65+": [5, 3, 2, 1, 1, 1, 1, 1, 1, 1]
+        },
+        "Drug C": {
+             "All": [110, 85, 75, 65, 55, 45, 40, 35, 25, 15],
+            "Male": [100, 80, 70, 60, 50, 40, 35, 30, 20, 10],
+            "Female": [120, 90, 80, 70, 60, 50, 45, 40, 30, 20],
+            "0-17": [20, 15, 10, 8, 6, 5, 4, 3, 2, 1],
+            "18-34": [40, 35, 30, 25, 20, 15, 10, 8, 6, 4],
+            "35-49": [20, 15, 12, 10, 8, 6, 5, 3, 2, 1],
+            "50-64": [10, 8, 6, 5, 4, 3, 2, 1, 1, 1],
+            "65+": [10, 7, 5, 4, 3, 2, 1, 1, 1, 1]
+        },
+        "Drug D": {
+            "All": [80, 65, 55, 50, 40, 30, 25, 20, 15, 10],
+            "Male": [75, 60, 50, 45, 35, 25, 20, 15, 10, 5],
+            "Female": [85, 70, 60, 50, 40, 30, 25, 20, 15, 10],
+            "0-17": [12, 10, 8, 6, 5, 4, 3, 2, 1, 1],
+            "18-34": [22, 18, 15, 12, 10, 8, 6, 4, 3, 2],
+            "35-49": [10, 8, 6, 4, 3, 2, 1, 1, 1, 1],
+            "50-64": [5, 4, 3, 2, 1, 1, 1, 1, 1, 1],
+            "65+": [4, 3, 2, 1, 1, 1, 1, 1, 1, 1]
+        }
+    },
+            "India": {
+        "Drug A": {
+              "All": [80, 65, 55, 50, 40, 30, 25, 20, 15, 10],
+            "Male": [75, 60, 50, 45, 35, 25, 20, 15, 10, 5],
+            "Female": [85, 70, 60, 50, 40, 30, 25, 20, 15, 10],
+            "0-17": [10, 8, 6, 5, 4, 3, 2, 1, 1, 1],
+            "18-34": [20, 15, 12, 10, 8, 6, 4, 3, 2, 1],
+            "35-49": [10, 7, 5, 4, 3, 2, 1, 1, 1, 1],
+            "50-64": [5, 4, 3, 2, 1, 1, 1, 1, 1, 1],
+            "65+": [5, 3, 2, 1, 1, 1, 1, 1, 1, 1]
+        },
+        "Drug B": {
+            "All": [80, 65, 55, 50, 40, 30, 25, 20, 15, 10],
+            "Male": [75, 60, 50, 45, 35, 25, 20, 15, 10, 5],
+            "Female": [85, 70, 60, 50, 40, 30, 25, 20, 15, 10],
+            "0-17": [12, 10, 8, 6, 5, 4, 3, 2, 1, 1],
+            "18-34": [22, 18, 15, 12, 10, 8, 6, 4, 3, 2],
+            "35-49": [10, 8, 6, 4, 3, 2, 1, 1, 1, 1],
+            "50-64": [5, 4, 3, 2, 1, 1, 1, 1, 1, 1],
+            "65+": [4, 3, 2, 1, 1, 1, 1, 1, 1, 1]
+        },
+        "Drug C": {
+            "All": [90, 70, 65, 50, 45, 40, 30, 25, 20, 15],
+            "Male": [85, 65, 60, 45, 40, 35, 28, 22, 18, 12],
+            "Female": [95, 75, 70, 55, 45, 40, 35, 28, 22, 18],
+            "0-17": [15, 10, 8, 6, 5, 4, 3, 2, 1, 1],
+            "18-34": [25, 20, 18, 15, 12, 10, 8, 5, 3, 2],
+            "35-49": [12, 9, 7, 5, 4, 3, 2, 1, 1, 1],
+            "50-64": [6, 5, 4, 3, 2, 2, 1, 1, 1, 1],
+            "65+": [5, 4, 3, 2, 2, 1, 1, 1, 1, 1]
+        },
+        "Drug D": {
+             "All": [110, 85, 75, 65, 55, 45, 40, 35, 25, 15],
+            "Male": [100, 80, 70, 60, 50, 40, 35, 30, 20, 10],
+            "Female": [120, 90, 80, 70, 60, 50, 45, 40, 30, 20],
+            "0-17": [20, 15, 10, 8, 6, 5, 4, 3, 2, 1],
+            "18-34": [40, 35, 30, 25, 20, 15, 10, 8, 6, 4],
+            "35-49": [20, 15, 12, 10, 8, 6, 5, 3, 2, 1],
+            "50-64": [10, 8, 6, 5, 4, 3, 2, 1, 1, 1],
+            "65+": [10, 7, 5, 4, 3, 2, 1, 1, 1, 1]
+        }
+    },
+    };
+
+        const ctx = document.getElementById('adrChart').getContext('2d');
+        let adrChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['ADR 1', 'ADR 2', 'ADR 3', 'ADR 4', 'ADR 5', 'ADR 6', 'ADR 7', 'ADR 8', 'ADR 9', 'ADR 10'],
+                datasets: [{
+                    label: 'Number of Cases',
+                    data: adrData["Global"]["Drug A"]["All"], // Default data for "All" filters
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Function to update chart based on selected drug, country, gender, age group, and race
+        function updateGraph() {
+            const selectedDrug = document.getElementById('drugSelect').value;
+            const selectedCountry = document.getElementById('countrySelect').value;
+            const selectedGender = document.getElementById('genderSelect').value;
+            const selectedAgeGroup = document.getElementById('ageGroupSelect').value;
+            const selectedRace = document.getElementById('raceSelect').value;
+
+            // Update the chart with new data based on selected filters
+            adrChart.data.datasets[0].data = adrData[selectedCountry][selectedDrug][selectedGender]; // Example for Gender filtering
+            adrChart.update();
+        }
+    </script>
+
+</body>
+</html>
