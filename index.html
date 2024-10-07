@@ -106,6 +106,25 @@
             align-items: flex-start;
         }
 
+        /* Drug Info Section */
+        .drug-info {
+            width: 100%;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .drug-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .drug-info p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
         @media (min-width: 768px) {
             .container {
                 flex-direction: row;
@@ -127,6 +146,10 @@
                 height: 400px;
                 padding: 0;
             }
+
+            .drug-info {
+                max-width: 800px;
+            }
         }
 
         /* Responsive design for smaller screens */
@@ -135,6 +158,11 @@
                 width: 100%;
                 height: 500px; /* Make the chart longer in mobile view */
                 padding: 0 10px;
+            }
+
+            .drug-info {
+                width: 100%;
+                padding: 10px;
             }
 
             h1 {
@@ -181,7 +209,7 @@
         }
     </style>
 </head>
-
+<body>
     <header>
         <h1>Global Drug Safety Reporting Trends</h1>
     </header>
