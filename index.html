@@ -6,8 +6,6 @@
     <title>Global Drug Safety Reporting Trends</title>
     <style>
         /* Basic reset and theme colors */
-/* Basic reset and theme colors */
-/* Basic reset and theme colors */
 * {
     margin: 0;
     padding: 0;
@@ -96,8 +94,30 @@ select:hover {
 
 .chart-container {
     width: 100%;
-    max-width: 100%; /* Ensure chart fits mobile view */
+    max-width: 100%;
+    height: auto;
     margin: 0 auto;
+    padding: 10px; /* Padding ensures space around the chart */
+    box-sizing: border-box; /* Includes padding in the element’s total width and height */
+    display: flex;
+    justify-content: center; /* Center the chart horizontally */
+    align-items: center; /* Center content vertically, if needed */
+}
+
+@media (min-width: 768px) {
+    .chart-container {
+        max-width: 800px; /* Restrict the width for larger screens */
+        height: 400px;
+        padding: 0; /* No padding on larger screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .chart-container {
+        width: 100%;
+        height: auto;
+        padding: 0 10px; /* Ensure there is equal padding on the left and right */
+    }
 }
 
 h2 {
