@@ -6,337 +6,59 @@
     <title>Global Drug Safety Reporting Trends</title>
     <style>
         /* Basic reset and theme colors */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f2f2f2;
-    color: #333;
-    overflow-x: hidden;
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            overflow-x: hidden;
+        }
 
-header {
-    background-color: #f9f9f9;
-    color: #000;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-}
-
-h1 {
-    font-size: 28px; /* Adjusted for better mobile visibility */
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-h3 {
-    font-size: 16px; /* Adjusted for better mobile visibility */
-    font-weight: 600;
-}
-
-.container {
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping of child elements */
-    padding: 20px; /* Reduced padding for mobile */
-}
-
-.sidebar {
-    width: 100%; /* Make sidebar full-width on mobile */
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 20px; /* Adjusted for mobile */
-    margin-bottom: 20px; /* Add spacing below sidebar */
-}
-
-.dropdown {
-    margin-bottom: 15px; /* Adjusted for mobile */
-}
-
-label {
-    display: block;
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 8px;
-}
-
-select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 12px;
-    background-color: #f0f0f0;
-    border: none;
-    font-size: 16px;
-    color: #333;
-    cursor: pointer;
-    outline: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
-}
-
-select:hover {
-    background-color: #e0e0e0;
-}
-
-.content {
-    flex: 1;
-    background-color: white;
-    padding: 20px; /* Reduced padding for mobile */
-    border-radius: 30px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-}
-
-.chart-container {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@media (max-width: 768px) {
-    .chart-container {
-        width: 100%;
-        height: 500px; /* Increase height for mobile to make it long */
-        padding: 0 10px;
-        display: flex;
-        justify-content: center; /* Center the chart horizontally */
-        align-items: flex-start; /* Align content at the top */
-    }
-}
-
-
-@media (max-width: 768px) {
-    .chart-container {
-        width: 100%;
-        height: auto;
-        padding: 0 10px; /* Ensure there is equal padding on the left and right */
-    }
-}
-
-h2 {
-    font-size: 20px; /* Adjusted for better mobile visibility */
-    margin-bottom: 20px;
-    text-align: center;
-}
-
- /* Drug Information Section */
-        .drug-info {
-            display: none;
-            margin-top: 20px;
-            padding: 20px;
+        header {
             background-color: #f9f9f9;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            color: #000;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
         }
 
-        .drug-info h3 {
-            margin-bottom: 10px;
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        .drug-info p {
-            margin-bottom: 10px;
-            line-height: 1.6;
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
         }
-	    
-/* Footer */
-footer {
-    text-align: center;
-    padding: 15px; /* Adjusted for mobile */
-    background-color: #f9f9f9;
-    color: #666;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-    box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.1);
-    margin-top: 20px; /* Reduced margin for mobile */
-}
 
-/* Animations */
-select,
-.content {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-select:focus,
-.content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-}
-
-/* Media Queries for Responsive Design */
-@media (min-width: 768px) {
-    .sidebar {
-        width: 250px; /* Sidebar width on larger screens */
-        margin-right: 20px; /* Spacing between sidebar and content */
-    }
-
-    .content {
-        padding: 30px; /* Increased padding for larger screens */
-    }
-
-    h1 {
-        font-size: 36px; /* Header size for larger screens */
-    }
-
-    h2 {
-        font-size: 24px; /* Subheader size for larger screens */
-    }
-
-    h3 {
-        font-size: 18px; /* Subheader size for larger screens */
-    }
-}
-
-
-.container {
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping */
-    padding: 20px; /* Adjusted padding */
-}
-
-.sidebar {
-    flex: 1 1 250px; /* Allow flex to adjust size */
-    max-width: 250px; /* Maximum width */
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 20px; /* Adjusted padding */
-    margin: 10px; /* Adjusted margin */
-}
-
-.dropdown {
-    margin-bottom: 15px; /* Adjusted margin */
-}
-
-label {
-    display: block;
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 5px; /* Adjusted margin */
-}
-
-select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 12px;
-    background-color: #f0f0f0;
-    border: none;
-    font-size: 16px;
-    color: #333;
-    cursor: pointer;
-    outline: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
-}
-
-select:hover {
-    background-color: #e0e0e0;
-}
-
-.content {
-    flex: 1 1 300px; /* Allow flex to adjust size */
-    background-color: white;
-    padding: 20px; /* Adjusted padding */
-    border-radius: 30px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-    margin: 10px; /* Adjusted margin */
-}
-
-.chart-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-	justify-content: center; /* Center the chart horizontally */
-    align-items: center; /* Center content vertically, if needed */
-}
-
-h2 {
-    font-size: 20px; /* Adjusted for mobile */
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-    color: #666;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-    box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.1);
-    margin-top: 20px; /* Adjusted margin */
-}
-
-/* Animations */
-select,
-.content {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-select:focus,
-.content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-}
-
-/* Media Queries for Mobile Responsiveness */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Stack sidebar and content vertically */
-    }
-
-    .sidebar {
-        max-width: 100%; /* Full width on small screens */
-        margin: 0 0 20px; /* Margin at the bottom */
-    }
-
-    .content {
-        max-width: 100%; /* Full width on small screens */
-    }
-
-    h1 {
-        font-size: 24px; /* Smaller heading for mobile */
-    }
-
-    h2 {
-        font-size: 18px; /* Smaller subheading for mobile */
-    }
-
-    h3 {
-        font-size: 16px; /* Smaller h3 for mobile */
-    }
-
-    padding: 10px; /* Smaller padding for mobile */
-}
-
-
+        /* Main container */
         .container {
             display: flex;
-            padding: 40px;
+            flex-direction: column;
+            padding: 20px;
         }
 
+        /* Sidebar */
         .sidebar {
-            width: 250px;
+            width: 100%;
             background-color: white;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            margin-right: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
         }
 
         .dropdown {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         label {
@@ -364,22 +86,72 @@ select:focus,
             background-color: #e0e0e0;
         }
 
+        /* Content area */
         .content {
-            flex: 1;
             background-color: white;
-            padding: 30px;
+            padding: 20px;
             border-radius: 30px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
         }
 
+        /* Chart Container */
         .chart-container {
             width: 100%;
-            max-width: 800px;
             margin: 0 auto;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .sidebar {
+                width: 250px;
+                margin-right: 20px;
+                flex-shrink: 0;
+            }
+
+            .content {
+                flex: 1;
+            }
+
+            .chart-container {
+                max-width: 800px;
+                height: 400px;
+                padding: 0;
+            }
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .chart-container {
+                width: 100%;
+                height: 500px; /* Make the chart longer in mobile view */
+                padding: 0 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
         }
 
         h2 {
-            font-size: 24px;
+            font-size: 20px;
             margin-bottom: 20px;
             text-align: center;
         }
@@ -387,44 +159,63 @@ select:focus,
         /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             background-color: #f9f9f9;
             color: #666;
             border-top-left-radius: 40px;
             border-top-right-radius: 40px;
             box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.1);
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
         /* Animations */
-        select, .content {
+        select,
+        .content {
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
-        select:focus, .content:hover {
+        select:focus,
+        .content:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-        }
-	      @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                padding: 20px;
-            }
-
-            .sidebar {
-                width: 100%;
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-
-            .content {
-                width: 100%;
-                max-width: none;
-            }
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Global Drug Safety Reporting Trends</h1>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <div class="dropdown">
+                <label for="select-country">Select Country</label>
+                <select id="select-country">
+                    <option value="us">United States</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="canada">Canada</option>
+                </select>
+            </div>
+            <div class="dropdown">
+                <label for="select-year">Select Year</label>
+                <select id="select-year">
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                </select>
+            </div>
+        </div>
+        <div class="content">
+            <h2>Reporting Trends Over Time</h2>
+            <div class="chart-container">
+                <!-- Chart will be embedded here -->
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Global Drug Safety Reporting</p>
+    </footer>
+</body>
+
 
     <header>
         <h1>Global Drug Safety Reporting Trends</h1>
