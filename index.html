@@ -410,6 +410,7 @@ select:focus,
             <h3>Select Drug</h3>
             <div class="dropdown">
                 <select id="drugSelect" onchange="updateGraph()">
+			<option value="Select Drug">Drug A</option>
                     <option value="Drug A">Drug A</option>
                     <option value="Drug B">Drug B</option>
                     <option value="Drug C">Drug C</option>
@@ -434,6 +435,7 @@ select:focus,
                     <option value="All">All</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
+			<option value="All">Others</option>
                 </select>
             </div>
 
@@ -451,6 +453,7 @@ select:focus,
 <h3>Select Special Population</h3>
 <div class="dropdown">
     <select id="populationSelect" onchange="updateGraph()">
+	    <option value="Select Population">All</option>
         <option value="Global">Pediatric Population</option>
         <option value="PregnantWomen">Pregnant and Lactating Women</option>
         <option value="Elderly">Elderly Population</option>
