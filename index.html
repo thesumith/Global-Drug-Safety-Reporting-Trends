@@ -448,6 +448,16 @@ select:focus,
                     <option value="65+">65+</option>
                 </select>
             </div>
+<h3>Select Special Population</h3>
+<div class="dropdown">
+    <select id="populationSelect" onchange="updateGraph()">
+        <option value="Global">Pediatric Population</option>
+        <option value="PregnantWomen">Pregnant and Lactating Women</option>
+        <option value="Elderly">Elderly Population</option>
+        <option value="RenalImpairment">Patients with Renal or Hepatic Impairment</option>
+        <option value="Immunocompromised">Immunocompromised Patients</option>
+    </select>
+</div>
 
             <h3>Select Race</h3>
             <div class="dropdown">
@@ -748,6 +758,7 @@ select:focus,
             const selectedGender = document.getElementById('genderSelect').value;
             const selectedAgeGroup = document.getElementById('ageGroupSelect').value;
             const selectedRace = document.getElementById('raceSelect').value;
+		const populationSelect = document.getElementById('populationSelect').value;
 
             // Update the chart with new data based on selected filters
             adrChart.data.datasets[0].data = adrData[selectedCountry][selectedDrug][selectedGender]; // Example for Gender filtering
