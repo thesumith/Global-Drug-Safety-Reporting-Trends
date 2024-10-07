@@ -709,6 +709,71 @@ select:focus,
             adrChart.data.datasets[0].data = adrData[selectedCountry][selectedDrug][selectedGender]; // Example for Gender filtering
             adrChart.update();
         }
+	            // Sample Drug Information Data
+        const drugInfoData = {
+            "Drug A": {
+                "indication": "Used for the treatment of hypertension.",
+                "contraindication": "Not to be used in patients with severe liver disease.",
+                "interactions": "May interact with NSAIDs, increasing the risk of renal impairment.",
+                "warnings": "Use with caution in patients with kidney disease or diabetes.",
+                "adrs": "Common adverse reactions include headache, dizziness, and fatigue."
+            },
+            "Drug B": {
+                "indication": "Indicated for the management of Type 2 diabetes.",
+                "contraindication": "Contraindicated in patients with severe kidney impairment.",
+                "interactions": "May interact with insulin, causing hypoglycemia.",
+                "warnings": "Monitor blood sugar levels regularly during treatment.",
+                "adrs": "Possible adverse reactions include nausea, vomiting, and diarrhea."
+            }
+            // ...Other drugs...
+        };
+
+        const ctx = document.getElementById('adrChart').getContext('2d');
+        let adrChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                datasets: [{
+                    label: 'Adverse Event Reports',
+                    data: adrData["Global"]["Drug A"]["All"],
+                    borderColor: '#408EC6',
+                    fill: false,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        function updateGraph() {
+            const drug = document.getElementById("drugSelect").value;
+            const newData = adrData["Global"][drug]["All"];
+            adrChart.data.datasets[0].data = newData;
+            adrChart.update();
+        }
+
+        function showDrugInfo() {
+            const drug = document.getElementById("drugSelect").value;
+            const info = drugInfoData[drug];
+
+            if (info) {
+                document.getElementById("indication").innerText = info.indication;
+                document.getElementById("contraindication").innerText = info.contraindication;
+                document.getElementById("interactions").innerText = info.interactions;
+                document.getElementById("warnings").innerText = info.warnings;
+                document.getElementById("adrs").innerText = info.adrs;
+
+                document.getElementById("drugInfo").style.display = 'block'; // Show the drug info section
+            } else {
+                document.getElementById("drugInfo").style.display = 'none'; // Hide if no info available
+            }
+        }
     </script>
 
 </body>
