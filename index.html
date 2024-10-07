@@ -179,7 +179,56 @@
         font-size: 16px;
     }
 }
+   .adr-link-section {
+        margin-top: 40px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
 
+    .adr-link-section h2 {
+        font-size: 24px;
+        color: #1E2761;
+        margin-bottom: 15px;
+    }
+
+    .adr-link-section p {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .adr-report-btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: #408EC6;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+
+    .adr-report-btn:hover {
+        background-color: #306b99;
+    }
+
+    @media (max-width: 768px) {
+        .adr-link-section {
+            padding: 10px;
+        }
+
+        .adr-link-section h2 {
+            font-size: 20px;
+        }
+
+        .adr-report-btn {
+            width: 100%;
+            padding: 12px;
+        }
+    }
         /* Footer */
         footer {
             text-align: center;
@@ -297,6 +346,13 @@
         <p><strong>Adverse Reactions:</strong> <span id="adrs"></span></p>
     </div>
             </section>
+          <section class="adr-link-section">
+    <div class="adr-report-container">
+        <h2>Report an Adverse Drug Reaction (ADR)</h2>
+        <p>If you have experienced an adverse drug reaction, please report it using the link below:</p>
+        <a href="https://thesumith.github.io/ADR-Reporting-form/" target="_blank" class="adr-report-btn">Report ADR</a>
+    </div>
+</section>
         </div>
     </div>
 
